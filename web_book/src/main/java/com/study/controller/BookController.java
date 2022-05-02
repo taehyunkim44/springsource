@@ -76,4 +76,45 @@ public class BookController {
 		return "redirect:/book/delete";
 		
 	}
+	
+	//도서 수정 페이지 보여주기
+	@GetMapping("/update")
+	public void updateGet(){
+		log.info("도서 수정 페이지 요청");
+	}
+	
+	//도서 수정 요청
+	@PostMapping("/update")
+	public String updatePost(int code, int price) {
+		log.info("도서 수정"+code+" "+price);
+		
+		if(service.bookUpdate(code, price)) {
+			return"redirect:/book/list";
+		}
+		return "redirect:book/update";
+	}
+	
+	//도서 검색 폼 보여주기
+	@GetMapping("/search")
+	public void searchGet() {
+		log.info("도서 페이지 요청");
+	}
+	
+	@PostMapping("/search")
+	public String searchPost(String criteria, String keyword, Model model) {
+		log.info("검색 요청"+criteria+" "+keyword);
+		
+		List<BookDTO> list = service.getSearchList(criteria, keyword);
+		
+		model.addAttribute("list", list);
+		
+		
+		return "/book/list"; // /WEB-INF/views/book/list.jsp
+//		return "redirect:/book/list; //컨트롤러 get(/book/list) 가기
+	
+	}
+		
 }
+	
+	
+

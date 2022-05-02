@@ -16,7 +16,7 @@ public interface BookMapper {
 	public BookDTO select(int code);
 	public List<BookDTO> search(@Param("criteria") String criteria,@Param("keyword") String keyword);
 	//U - 수정
-	public int update(@Param("code") int code,@Param("price") int prices);
+	public int update(@Param("code") int code,@Param("price") int price);
 	//D - 삭제
 	public int delete(int code);
 }
