@@ -23,6 +23,20 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+*.springWebflow
+*.scss
+*.less
+*.png
+*.eot
+*.svg
+*.ttf
+*.woff2
+*.woff
+*.otf
+*.svg
+*.jpg
+*.txt
+
 
 # External tool builders
 .externalToolBuilders/
